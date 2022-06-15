@@ -1,0 +1,52 @@
+.todo {
+  padding: 10px;
+  font-size: x-large;
+}
+
+.todoText {
+  cursor: pointer;
+  padding: 0px 0px 0px 10px;
+}
+
+.todoDone {
+  text-decoration: line-through;
+  padding: 0px 10px 0px 10px;
+}
+
+.addTodo {
+  padding: 30px;
+}
+
+.todoCheckbox {
+  width: 20px;
+  height: 20px;
+}
+
+.todoCount {
+  font-size: xx-large;
+  padding: 10px 0px;
+}
+
+.addTodoInput {
+  width: 100%;
+  padding: 0px 0px 0px 5px;
+  font-size: x-large;
+  border-radius: 4px;
+}
+
+.editTodoTextInput {
+  width: 80%;
+  padding: 0px 0px 0px 5px;
+  margin: 0px 10px 0px 0px;
+  font-size: x-large;
+  border-radius: 4px;
+}
+
+.removeTodo {
+  cursor: pointer;
+}
+
+.dialog {
+  border-radius: 8px;
+  font-size: x-large;
+}
