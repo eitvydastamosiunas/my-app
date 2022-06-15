@@ -1,0 +1,90 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" ></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js" ></script>
+    <style>
+      .todo {
+        margin: 5px;
+      }
+      .count {
+        padding-top: 10px;
+        font-weight: 700;
+      }
+      .box {
+        font-size: larger;
+        text-align: center;
+        margin: 100px;
+      }      
+      .todos {
+        text-align: left;
+      }
+    </style>
+    <script type="text/babel">
+      function Todo(props) {
+        return <div className="todo">{props.text}</div>
+      }
+
+      function TodoCount(props) {
+        return (
+          <div className="count">You have {props.todos.length} todos</div>
+        )
+      }
+
+      function AddTodo(props) {
+        const [text, setText] = React.useState('');
+
+        function onTextChange(e) {
+          setText(e.target.value);
+        }
+
+        function addTodo() {
+          if (text === '') return;
+          props.addCallback(text);
+          setText('');
+        }
+
+        return (
+          <div>
+            <input type="text" value={text} onChange={onTextChange} />
+            <input type="button" value="Add" onClick={addTodo} />
+          </div>
+        );
+      }
+
+      function Todos() {
+        const [todos, setTodos] = React.useState([]);
+
+        function addTodo(todo) {
+          setTodos([...todos, [...todo]]);
+        }
+
+        return (
+          <div className="todos">
+            <AddTodo addCallback={addTodo}/>
+            <TodoCount todos={todos} />
+            {todos.map((todo) => 
+              <Todo text={todo} key={todo} />
+            )}
+          </div>
+        );
+      }
+
+      function App() {
+        return (
+          <div className="box">
+            <Todos/>
+          </div>
+        )
+      }
+
+      ReactDOM.render(
+        App(),
+        document.getElementById("root")
+      );
+    </script>
+  </body>
+</html>
