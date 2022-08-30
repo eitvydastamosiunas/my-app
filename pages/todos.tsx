@@ -80,7 +80,7 @@ const Todos: NextPage = () => {
           </div>
         </div>
         <Dialog isOpen={isDialogOpen}>
-          <div>Do you want to delete the '{todos[selectedIndex.current]?.text}' todo?</div>
+          <div>Do you want to delete the `&quot;{todos[selectedIndex.current]?.text}`&quot; todo?</div>
           <div className={styles.dialogInputGroup} >
             <input className={styles.dialogInput} type="button" value="Yes" onClick={deleteTodo} />
             <input className={styles.dialogInput} type="button" value="No" onClick={toggleDialog} />
